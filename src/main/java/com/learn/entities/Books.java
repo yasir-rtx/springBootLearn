@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tb_books") // JPA akan cek tabel di db
@@ -18,15 +19,19 @@ public class Books implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotEmpty(message = "Title is required")
     @Column(name = "book_title")
     private String title;
 
+    @NotEmpty(message = "Author is required")
     @Column(name = "book_author")
     private String author;
 
+    @NotEmpty(message = "Description is required")
     @Column(name = "book_desc")
     private String desc;
 
+    // @NotEmpty(message = "Price is required")
     @Column(name = "book_price")
     private double price;
 
