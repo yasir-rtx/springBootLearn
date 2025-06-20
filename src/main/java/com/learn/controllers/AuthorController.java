@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learn.dto.ResponseData;
 import com.learn.entities.Author;
-import com.learn.entities.Books;
 import com.learn.services.AuthorService;
 
 import jakarta.validation.Valid;
