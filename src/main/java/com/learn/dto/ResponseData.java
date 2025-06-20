@@ -3,6 +3,7 @@ package com.learn.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+// <T> Menjadikan ResponseData generic (bisa menampung nilai apapun)
 public class ResponseData<T> {
     private boolean status;
     private List<String> messages = new ArrayList<>();

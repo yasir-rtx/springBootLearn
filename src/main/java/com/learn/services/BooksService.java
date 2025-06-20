@@ -25,10 +25,10 @@ public class BooksService {
 
     // Fungsi Find one book
     public Books findOne(Long id) {
+        // Cek jika id tidak ada
         Optional<Books> book = bookRepo.findById(id);
-        if (!book.isPresent()) {
+        if (!book.isPresent())
             return null;
-        }
         return book.get();
     }
 
