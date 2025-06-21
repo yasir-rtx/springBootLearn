@@ -19,7 +19,6 @@ public class RegisterDto {
     @Column(name = "user_password")
     private String password;
 
-    @NotEmpty
     @Column(name = "user_role")
     private String role;
 
