@@ -34,6 +34,9 @@ public class SecurityConfig {
                                 .authorizeHttpRequests(auth -> auth
                                                 .requestMatchers("/").permitAll()
                                                 .requestMatchers("/home").permitAll()
+                                                .requestMatchers("/account").permitAll()
+                                                .requestMatchers("/account/login").permitAll()
+                                                .requestMatchers("/account/register").permitAll()
                                                 .anyRequest().authenticated())
                                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
                                 .sessionManagement(session -> session.sessionCreationPolicy(
