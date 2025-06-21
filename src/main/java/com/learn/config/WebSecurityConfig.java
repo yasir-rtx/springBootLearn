@@ -17,25 +17,25 @@ import com.learn.services.UserService;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-    @Autowired
-    private UserService userService;
+        @Autowired
+        private UserService userService;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+        @Autowired
+        private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests().antMatchers("/api/users/register").permitAll()
-                .anyRequest().fullyAuthenticated()
-                .and().httpBasic();
-    }
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+                http.csrf().disable()
+                                .authorizeRequests().antMatchers("/api/users/register").permitAll()
+                                .anyRequest().fullyAuthenticated()
+                                .and().httpBasic();
+        }
 
-    @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(bCryptPasswordEncoder);
-        provider.setUserDetailsPasswordService(userService);
-        return provider;
-    }
+        @Bean
+        public DaoAuthenticationProvider daoAuthenticationProvider() {
+                DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+                provider.setPasswordEncoder(bCryptPasswordEncoder);
+                provider.setUserDetailsPasswordService(userService);
+                return provider;
+        }
 }
